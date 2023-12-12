@@ -1,23 +1,16 @@
-import {React, useState} from "react";
+import {useState} from "react";
+import Contacts from "./Contacts";
+import Work from "./Work";
+import Education from "./Education";
+import Skills from "./Skills";
 
-export default function Form(){
+export default function Form(props){
     return (
         <>
-            <form>
-                <h1>Contacts</h1>
-                <label>Name: 
-                    <input name="name"></input>
-                </label>
-                <label>Email:
-                    <input name="email" type="email"></input>
-                </label>
-                <label name="number">Cellphone #
-                    <input name="number"></input>
-                </label>
-                <label>City:
-                    <input name="city"/>
-                </label>
-            </form>
+            <Contacts data={props.contacts} onChange={props.setContacts}/>
+            <Work data={props.work} onChange={props.setWork}/>
+            <Education data={props.education} onChange={props.setEducation}/>
+            <Skills data={props.skills} onChange={props.setSkills}/>
         </>
     )
 }
