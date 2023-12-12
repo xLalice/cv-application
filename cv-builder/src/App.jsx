@@ -11,13 +11,14 @@ function App() {
 		city: "Denver, CO",
 		portfolio: undefined
 	});
-	const [work, setWork] = useState({
+	const [work, setWork] = useState([{
 		company: "Sheets & Giggle",
 		jobTitle: "CEO",
 		tenure: "Oct 2017 - Present",
 		city: "Denver, CO",
 		responsibilities: ["S&G makes sustainable plant-based mattresses, sheets, & pillows from Eucalyptus Lyocell (SheetsGiggles.com).", "LOLS"]
-	});
+	}]);
+
 	const [education, setEducation] = useState({
 		university: "Harvard",
 		degree: "BS Computer Science",
@@ -26,6 +27,7 @@ function App() {
 		honors: ["Summa Cum Laude"],
 		stuff: ["Varsity"]
 	});
+
 	const [skills, setSkills] = useState({
 		certifications: ["TOP"],
 		skillSet: ["Front End, Backend"],
@@ -64,24 +66,28 @@ function App() {
 		}))
 	}
 
-	return (
-	<>
-		<Form 
-			setContacts={contactsHandler}
-			contacts={contacts}
-			work={work}
-			setWork={workHandler}
-			education={education}
-			setEducation={educationHandler}
-			skills={skills}
-			setSkills={skillsHandler}/>
-		<Resume 
-			contacts={contacts}
-			work={work}
-			education={education}
-			skills={skills}/>
-	</>
+	function addWork(){
+		setWork(prevState => [...prevState, {}])
+	}
+	
 
+	return (
+		<div class="content">
+			<Form 
+				setContacts={contactsHandler}
+				contacts={contacts}
+				work={work}
+				setWork={workHandler}
+				education={education}
+				setEducation={educationHandler}
+				skills={skills}
+				setSkills={skillsHandler}/>
+			<Resume 
+				contacts={contacts}
+				work={work}
+				education={education}
+				skills={skills}/>
+		</div>
 	)
 
 }
