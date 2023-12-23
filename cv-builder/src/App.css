@@ -1,4 +1,7 @@
 .content {
     display: flex;
     gap: 2em;
+    justify-content: center;
+    padding-top: 1em;
+    padding-left: 1em;
 }
